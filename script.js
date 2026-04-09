@@ -1,7 +1,18 @@
 function analyzeResume() {
   let text = document.getElementById("resume").value.toLowerCase();
 
-  let skillsList = ["html", "css", "javascript", "python", "java", "c++"];
+  // Extended skills list
+  let skillsList = [
+    "html", "css", "javascript", "react", "node", "express",
+    "python", "django", "flask",
+    "java", "spring",
+    "c", "c++",
+    "mysql", "mongodb",
+    "git", "github",
+    "aws", "cloud",
+    "machine learning", "data analysis"
+  ];
+
   let detectedSkills = [];
 
   skillsList.forEach(skill => {
@@ -10,14 +21,15 @@ function analyzeResume() {
     }
   });
 
-  // Score calculation
-  let score = detectedSkills.length * 20;
+  // Score (max 100)
+  let score = Math.min(detectedSkills.length * 10, 100);
 
   document.getElementById("score").innerText = "Score: " + score + "/100";
 
   // Show skills
   let skillsUl = document.getElementById("skills");
   skillsUl.innerHTML = "";
+
   detectedSkills.forEach(skill => {
     let li = document.createElement("li");
     li.innerText = skill;
@@ -26,21 +38,50 @@ function analyzeResume() {
 
   // Job suggestions
   let jobsUl = document.getElementById("jobs");
-  jobsUl.innerHTML = "";
+  jobsUl.innerHTML = [];
 
-  if (detectedSkills.includes("javascript")) {
-    addJob("Web Developer");
-  }
-  if (detectedSkills.includes("python")) {
-    addJob("Data Analyst");
-  }
-  if (detectedSkills.includes("java")) {
-    addJob("Software Engineer");
+  let jobs = new Set();
+
+  if (text.includes("html") || text.includes("css") || text.includes("javascript")) {
+    jobs.add("Frontend Developer");
   }
 
-  function addJob(job) {
+  if (text.includes("react") || text.includes("node")) {
+    jobs.add("Full Stack Developer");
+  }
+
+  if (text.includes("python") || text.includes("machine learning")) {
+    jobs.add("Data Scientist");
+  }
+
+  if (text.includes("data analysis")) {
+    jobs.add("Data Analyst");
+  }
+
+  if (text.includes("java")) {
+    jobs.add("Software Engineer");
+  }
+
+  if (text.includes("c") || text.includes("c++")) {
+    jobs.add("System Programmer");
+  }
+
+  if (text.includes("aws") || text.includes("cloud")) {
+    jobs.add("Cloud Engineer");
+  }
+
+  if (text.includes("mongodb") || text.includes("mysql")) {
+    jobs.add("Database Administrator");
+  }
+
+  if (text.includes("git")) {
+    jobs.add("DevOps Engineer");
+  }
+
+  // Display jobs
+  jobs.forEach(job => {
     let li = document.createElement("li");
     li.innerText = job;
     jobsUl.appendChild(li);
-  }
+  });
 }
