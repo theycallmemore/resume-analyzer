@@ -6,21 +6,28 @@
 </head>
 <body>
 
+<div class="container">
+
   <h1>Resume Analyzer</h1>
 
-  <textarea id="resume" placeholder="Paste your resume here..."></textarea><br><br>
+  <textarea id="resume" placeholder="Paste your resume here..."></textarea>
 
   <button onclick="analyzeResume()">Analyze Resume</button>
 
-  <h2>Result</h2>
-  <p id="score"></p>
+  <div class="result-box">
+    <h2>Result</h2>
+    <p id="score"></p>
 
-  <h3>Detected Skills:</h3>
-  <ul id="skills"></ul>
+    <h3>Detected Skills</h3>
+    <ul id="skills"></ul>
 
-  <h3>Suggested Jobs:</h3>
-  <ul id="jobs"></ul>
+    <h3>Suggested Jobs</h3>
+    <ul id="jobs"></ul>
+  </div>
 
-  <script src="script.js"></script>
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
