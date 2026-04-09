@@ -1,23 +1,101 @@
 body {
-  font-family: Arial;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Main Card */
+.container {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 16px;
+  width: 380px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
   text-align: center;
-  background: #f4f4f4;
 }
 
+/* Heading */
+h1 {
+  margin-bottom: 20px;
+  color: #38bdf8;
+}
+
+/* Textarea */
 textarea {
-  width: 300px;
-  height: 150px;
-  padding: 10px;
-}
-
-button {
-  padding: 10px 20px;
-  background: blue;
-  color: white;
+  width: 100%;
+  height: 140px;
+  padding: 12px;
+  border-radius: 10px;
   border: none;
-  cursor: pointer;
+  outline: none;
+  resize: none;
+  background: #0f172a;
+  color: #e2e8f0;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+  margin-bottom: 15px;
 }
 
+textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(56,189,248,0.4);
+}
+
+/* Result Box */
+.result-box {
+  margin-top: 20px;
+  text-align: left;
+}
+
+/* Headings */
+h2 {
+  margin-top: 15px;
+  color: #22c55e;
+}
+
+h3 {
+  margin-top: 15px;
+  color: #facc15;
+}
+
+/* Lists */
 ul {
   list-style: none;
+  padding: 0;
+}
+
+ul li {
+  background: #334155;
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+/* Score */
+#score {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f87171;
 }
